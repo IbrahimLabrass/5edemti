@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <app-page-title title="Liste des client" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Liste des client</h4>
+           
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-hover table-striped table-responsive">
+              <thead>
+                <tr>
+                  <th>photo</th>
+                  <th>nom</th>
+                  <th>prenom</th>
+                  <th>telephone</th>
+                  <th>adresse</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let client of clients">    
+                  <td><img src="{{ client.user.photo }}" width="100" alt=""></td>            
+                  <td>{{ client.user.nom }} </td>
+                  <td>{{ client.user.prenom }}</td>
+                  <td>{{ client.user.telephone }} DT</td>
+                  <td><p class="desc">{{ client.user.adresse }}</p></td>
+                  <td>
+                    <a (click)="accepter(client.id)" class="btn btn-success"><i class="fa fa-solid fa-check"></i></a>
+                    <a (click)="confirm(client.id)" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            
+          </div>
+        </div>
+  
+        
+      </div>
+    </div>
+  </div>
+ 
